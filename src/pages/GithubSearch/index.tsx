@@ -54,7 +54,7 @@ const GithubSearch = () => {
   return (
     <div className="git-search-container">
       <div className="container search-container">
-        <h1>Encontre um perfil Github</h1>
+        <h1>Encontre um perfil Github:</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-container">
             <input
@@ -62,7 +62,7 @@ const GithubSearch = () => {
               name="username"
               value={formData.username}
               className="search-input"
-              placeholder="Usuário Github"
+              placeholder="@ do Github"
               onChange={handleChange}
             />
             <button type="submit" className="btn btn-primary search-button">
@@ -73,21 +73,21 @@ const GithubSearch = () => {
       </div>
       <div className="container result-container">
         {isLoading ? <CardLoader /> :
-        <form className="container info-container">
-          {profile && (
-            <>
-            <div><img className="img-container" src={profile.avatar_url} alt={profile.name}/></div>
-            <div className="txt-container">
-              <h6>Informações</h6>
-              
-              <ResultCard title="Perfil:" description={profile.html_url} />
-              <ResultCard title="Seguidores:" description={profile.followers} />
-              <ResultCard title="Localidade:" description={profile.location} />
-              <ResultCard title="Nome:" description={profile.name} />
-              </div>
-            </>
-          )}
-        </form>}
+          <form className="container info-container">
+            {profile && (
+              <>
+                <div><img className="img-container" src={profile.avatar_url} alt={profile.name} /></div>
+                <div className="txt-container">
+                  <h6>Informações</h6>
+
+                  <ResultCard title="Perfil:" description={profile.html_url} />
+                  <ResultCard title="Seguidores:" description={profile.followers} />
+                  <ResultCard title="Localidade:" description={profile.location} />
+                  <ResultCard title="Nome:" description={profile.name} />
+                </div>
+              </>
+            )}
+          </form>}
       </div>
     </div>
   );
